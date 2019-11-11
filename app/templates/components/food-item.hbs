@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-8">
+    <ul class="list-group foods">
+      <li class="list-group-item">
+        <b>Food</b>: {{food.name}}
+      </li>
+      <li class="list-group-item">
+        <b>Price:</b> {{food.price}}
+      </li>
+      <li class="list-group-item">
+        <b>Description:</b> {{food.description}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
+           aria-expanded="false">
+          Order this food
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu actions">
+          <li class="active list-group-item">Select Shift</li>
+          <li>
+            <a href="javascript:void(0)" {{ action "handleFoodOrder" "morning" food on="click"}}>Morning</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" {{ action "handleFoodOrder" "day" food on="click"}}>Day</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" {{ action "handleFoodOrder" "night" food on="click"}}>Night</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-8">
+    <ul class="list-group user">
+      <li class="list-group-item">
+        <b>Full Name</b>:
+        {{#link-to 'user' user.id}}
+          {{user.first_name}} {{user.last_name}}
+        {{/link-to}}
+      </li>
+      <li class="list-group-item">
+        <b>Role:</b> {{user.role}}
+      </li>
+      <li class="list-group-item">
+        <b>Joined on:</b> {{user.created_at}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
+           aria-expanded="false">
+          Actions
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="javascript:void(0)" {{ action "handleRoleChange" "admin" user on="click"}}>Make Admin</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" {{ action "handleRoleChange" "user" user on="click"}}>Make User</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

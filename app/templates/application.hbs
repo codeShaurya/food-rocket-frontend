@@ -1,0 +1,45 @@
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        {{#link-to 'index' class="navbar-brand"}}
+          FoodRocket
+        {{/link-to}}
+      </div>
+      {{#if model.session.email}}
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              {{#link-to 'foods'}} Foods {{/link-to}}
+            </li>
+            <li>
+              {{#link-to 'orders'}} Orders {{/link-to}}
+            </li>
+            {{#if model.isAdministrator}}
+              <li>
+                {{#link-to 'users'}} Users {{/link-to}}
+              </li>
+            {{/if}}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
+                 aria-expanded="false">
+                My Account ({{model.session.first_name}} {{model.session.last_name}})
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  {{#link-to 'me'}} Edit {{/link-to}}
+                </li>
+                <li><a href="#" {{ action "handleLogout" on="click"}}>Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+  </nav>
+  <div class="jumbotron">
+    {{outlet}}
+  </div>
+</div>

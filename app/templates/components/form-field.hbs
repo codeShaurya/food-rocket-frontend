@@ -1,0 +1,11 @@
+<div class="form-group">
+  <label>{{ label }}:</label>
+  {{yield}}
+  {{#if errors}}
+    {{#each errors as |error|}}
+      <div class="message message-danger" style="color:red">
+        {{ error }}
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
